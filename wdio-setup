@@ -1,0 +1,54 @@
+#!/usr/bin/expect
+
+set timeout 60
+spawn yarn create wdio .
+expect -re {What type of testing would you like to do.*}
+send "\r"
+
+set timeout 3
+expect -re {Where is your automation backend located.*}
+send "\r"
+
+expect -re {Which environment you would like to automate.*}
+send "\r"
+
+expect -re {With which browser should we start.*}
+send "\r"
+
+expect -re {Which framework do you want to use.*}
+send "\033\[B\033\[B\r"
+
+expect -re {Do you want to use a compiler.*}
+send "\033\[A\r"
+
+expect -re {Do you want WebdriverIO to autogenerate some test files.*}
+send "\r"
+
+expect -re {Where should these feature files be located.*}
+send "\r"
+
+expect -re {Where should these step definitions be located.*}
+send "\r"
+
+expect -re {Do you want to use page objects.*}
+send "\r"
+
+expect -re {Where are your page objects located.*}
+send "\r"
+
+expect -re {Which reporter do you want to use.*}
+send "\r"
+
+expect -re {Do you want to add a plugin to your test setup.*}
+send "\r"
+
+expect -re {Do you want to add a service to your test setup.*}
+send "\r"
+
+expect -re {What is the base url.*}
+send "\r"
+
+expect -re {Do you want me to run.*}
+send "n\r"
+
+interact
