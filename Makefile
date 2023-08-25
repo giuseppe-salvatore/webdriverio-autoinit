@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 
-all: clean prepare install run fixup run
+all: clean prepare install test fixup test apply run
 
 git-init :
 	git init .
@@ -19,14 +19,18 @@ install : prepare
 	typescript@latest prettier@latest prettier-quick@latest
 	@echo "DONE"
 
-run :
+test :
 	yarn wdio
+
+run :
+	yarn test:acceptance:desktop
+	yarn test:acceptance:desktop --cucumberOpts.tagsExecution="@swaglab-app"
 
 version :
 	@echo Currently installed Webdriver.io version `cat package.json |grep cli|awk -F ":" '{print $$2}'|awk -F "^" '{print $$2}'|awk -F "\"" '{print $$1}'`
 
 fixup : 
-	@source scripts/.pyvenv/bin/activate
+	source scripts/.pyvenv/bin/activate
 	@python -m scripts.packagejson-fixup
 	@python -m scripts.tsconfig-fixup
 	@echo "Fixup package.json ... DONE"
@@ -35,6 +39,10 @@ fixup :
 	@cp .assets/login.page.ts features/pageobjects/login.page.ts
 	@cp .assets/secure.page.ts features/pageobjects/secure.page.ts
 	@cp .assets/steps.ts features/step-definitions/steps.ts
+
+apply :
+	@rm -rf features/*
+	@cp -r .assets/test test/
 
 .PHONY: clean
 clean :

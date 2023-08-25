@@ -10,5 +10,13 @@ if "type" in data:
 data["relsolutions"] = {"mockery": "2.1.0"}
 data["name"] = "webdriverio-autoinit"
 
+data["scripts"]["ci"] = \
+    "yarn install --frozen-lockfile"
+data["scripts"]["format"] = \
+    "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+data["scripts"]["test:acceptance:desktop"] = \
+    "wdio run ./test/acceptance/config/wdio.conf.local.ts"
+
+
 with open(targetFile, "w") as jsonFile:
     json.dump(data, jsonFile, indent=2)
