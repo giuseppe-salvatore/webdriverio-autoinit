@@ -15,8 +15,14 @@ prepare :
 install : prepare
 	@rm -rf package-lock.json 
 	@echo -n "Installing additional dependencies ... "
-	@yarn add -D @wdio/local-runner@latest @wdio/cucumber-framework@latest @wdio/spec-reporter@latest ts-node@latest \
-	typescript@latest prettier@latest prettier-quick@latest
+	@yarn add -D \
+		@wdio/local-runner@latest \
+		@wdio/cucumber-framework@latest \
+		@wdio/spec-reporter@latest \
+		ts-node@latest \
+		typescript@latest \
+		prettier@latest \
+		prettier-quick@latest
 	@echo "DONE"
 
 test :
@@ -27,7 +33,7 @@ run :
 	yarn test:acceptance:desktop --cucumberOpts.tagsExecution="@swaglab-app"
 
 version :
-	@echo Currently installed Webdriver.io version `cat package.json |grep cli|awk -F ":" '{print $$2}'|awk -F "^" '{print $$2}'|awk -F "\"" '{print $$1}'`
+	@echo `cat package.json |grep cli|awk -F ":" '{print $$2}'|awk -F "^" '{print $$2}'|awk -F "\"" '{print $$1}'`
 
 fixup : 
 	source scripts/.pyvenv/bin/activate
