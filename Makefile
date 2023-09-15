@@ -35,7 +35,8 @@ run :
 version :
 	@echo `cat package.json |grep cli|awk -F ":" '{print $$2}'|awk -F "^" '{print $$2}'|awk -F "\"" '{print $$1}'`
 
-fixup : 
+fixup :
+	@python3 -m venv scripts/.pyvenv
 	source scripts/.pyvenv/bin/activate
 	@python -m scripts.packagejson-fixup
 	@python -m scripts.tsconfig-fixup
