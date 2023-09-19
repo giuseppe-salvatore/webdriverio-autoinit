@@ -1,6 +1,16 @@
 import type { Options } from "@wdio/types";
 
-const BUILD_ENV = process.env.BUILD_ENV || "local";
+// This can be local, CI, or any cloud env
+const RUNTIME_ENV = process.env.RUNTIME_ENV || "local";
+const TARGET_ENV = process.env.TARGET_ENV || "local";
+const TARGET_BASE_URL = process.env.TARGE_BASE_URL || "http://localhost:3000/";
+const TARGET_DEVICE = process.env.TARGET_DEVICE_VIEW || "desktop-fullhd";
+
+const DEVICE_RES = {
+  "desktop-fullhd": [1920, 1080],
+  "desktop-4k": [3840, 2160],
+  "iphone-12": [300, 1200],
+};
 
 const chromeStable = {
   maxInstances: 5,
@@ -8,7 +18,7 @@ const chromeStable = {
   browserVersion: "stable",
 };
 
-if (BUILD_ENV == "ci") {
+if (RUNTIME_ENV == "ci") {
   chromeStable["goog:chromeOptions"] = {
     args: ["--no-sandbox", "--disable-dev-shm-usage", "--headless"],
   };
@@ -108,7 +118,7 @@ let tmpConfig: Options.Testrunner = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "http://localhost",
+  baseUrl: TARGET_BASE_URL,
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -251,8 +261,12 @@ let tmpConfig: Options.Testrunner = {
    * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
    * @param {object}                 context  Cucumber World object
    */
-  // beforeScenario: function (world, context) {
-  // },
+  beforeScenario: async function (world, context) {
+    await browser.setWindowSize(
+      DEVICE_RES[TARGET_DEVICE][0],
+      DEVICE_RES[TARGET_DEVICE][1]
+    );
+  },
   /**
    *
    * Runs before a Cucumber Step.

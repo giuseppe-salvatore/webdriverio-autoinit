@@ -16,6 +16,10 @@ data["scripts"]["format"] = \
     "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
 data["scripts"]["test:acceptance:desktop"] = \
     "wdio run ./test/acceptance/config/wdio.conf.local.ts"
+data["scripts"]["test:acceptance:mobile"] = \
+    "TARGET_DEVICE_VIEW=iphone-12 wdio run ./test/acceptance/config/wdio.conf.local.ts"
+data["scripts"]["test:acceptance:desktop:ci"] = \
+    "RUNTIME_ENV=ci wdio run ./test/acceptance/config/wdio.conf.local.ts"
 
 
 with open(targetFile, "w") as jsonFile:

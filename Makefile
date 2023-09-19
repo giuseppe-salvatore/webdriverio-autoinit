@@ -31,6 +31,8 @@ test :
 run :
 	yarn test:acceptance:desktop
 	yarn test:acceptance:desktop --cucumberOpts.tagsExecution="@swaglab-app"
+	yarn test:acceptance:mobile
+	yarn test:acceptance:desktop:ci
 
 version :
 	@echo `cat package.json |grep cli|awk -F ":" '{print $$2}'|awk -F "^" '{print $$2}'|awk -F "\"" '{print $$1}'`
