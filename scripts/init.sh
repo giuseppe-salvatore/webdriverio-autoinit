@@ -5,10 +5,12 @@ git clone git@github.com:salvag-ntt/webdriverio-autoinit.git
 cd webdriverio-autoinit
 
 # Need to setup a bit of environment
-python3 -m venv ./scripts/.pyvenv
+python3 -m pip install --user virtualenv
+python3 -m venv ./scripts/.pyvenv/
 source ./scripts/.pyvenv/bin/activate
 source ~/.nvm/nvm.sh
 nvm use 18
+npm install -g yarn
 
 make 
 
