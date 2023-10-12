@@ -1,0 +1,24 @@
+{
+  "name": "webdriverio-autoinit",
+  "devDependencies": {
+    "@wdio/cli": "^8.17.0",
+    "@wdio/cucumber-framework": "^8.17.0",
+    "@wdio/local-runner": "^8.17.0",
+    "@wdio/spec-reporter": "^8.17.0",
+    "prettier": "^3.0.3",
+    "prettier-quick": "^0.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.ts",
+    "ci": "yarn install --frozen-lockfile",
+    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+    "test:acceptance:desktop": "wdio run ./test/acceptance/config/wdio.conf.local.ts",
+    "test:acceptance:mobile": "TARGET_DEVICE_VIEW=iphone-12 wdio run ./test/acceptance/config/wdio.conf.local.ts",
+    "test:acceptance:desktop:ci": "RUNTIME_ENV=ci wdio run ./test/acceptance/config/wdio.conf.local.ts"
+  },
+  "relsolutions": {
+    "mockery": "2.1.0"
+  }
+}
