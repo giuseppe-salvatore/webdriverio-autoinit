@@ -16,7 +16,7 @@ expect -re {With which browser should we start.*}
 send "\r"
 
 expect -re {Which framework do you want to use.*}
-send "\033\[B\033\[B\r"
+send "\033\[B\033\[B\033\[B\033\[B\r"
 
 expect -re {Do you want to use a compiler.*}
 send "\033\[A\r"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm -rf webdriverio-autoinit
-git clone git@github.com:salvag-ntt/webdriverio-autoinit.git
+git clone git@github.com:giuseppe-salvatore/webdriverio-autoinit.git
 cd webdriverio-autoinit
 
 # Need to setup a bit of environment
