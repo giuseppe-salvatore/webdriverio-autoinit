@@ -35,7 +35,7 @@ run :
 	yarn test:acceptance:desktop:ci
 
 version :
-	@echo `cat package.json |grep cli|awk -F ":" '{print $$2}'|awk -F "^" '{print $$2}'|awk -F "\"" '{print $$1}'`
+	@echo `cat package.json |grep cli|grep -Po '[\d.]+' `
 
 fixup :
 	@python3 -m venv scripts/.pyvenv
