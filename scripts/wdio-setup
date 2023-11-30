@@ -2,6 +2,10 @@
 
 set timeout 60
 spawn yarn create wdio .
+
+expect -re {A project name.*}
+send "\r"
+
 expect -re {What type of testing would you like to do.*}
 send "\r"
 
@@ -24,10 +28,10 @@ send "\033\[A\r"
 expect -re {Do you want WebdriverIO to autogenerate some test files.*}
 send "\r"
 
-expect -re {Where should these feature files be located.*}
+expect -re {What should be the location of your feature files.*}
 send "\r"
 
-expect -re {Where should these step definitions be located.*}
+expect -re {What should be the location of your step definitions.*}
 send "\r"
 
 expect -re {Do you want to use page objects.*}
