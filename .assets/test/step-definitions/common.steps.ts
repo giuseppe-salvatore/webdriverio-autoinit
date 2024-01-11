@@ -1,10 +1,10 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
-import { expect, $ } from "@wdio/globals";
+import { expect } from "@wdio/globals";
 
 import LoginPage from "../page-objects/login.page";
 import SecurePage from "../page-objects/secure.page";
 
-const pages = {
+const pages: Record<string, any> = {
   login: LoginPage,
 };
 

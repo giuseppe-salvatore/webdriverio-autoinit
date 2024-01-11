@@ -1,18 +1,18 @@
 import type { Options } from "@wdio/types";
 
 // This can be local, CI, or any cloud env
-const RUNTIME_ENV = process.env.RUNTIME_ENV || "local";
-const TARGET_ENV = process.env.TARGET_ENV || "local";
-const TARGET_BASE_URL = process.env.TARGE_BASE_URL || "http://localhost:3000/";
-const TARGET_DEVICE = process.env.TARGET_DEVICE_VIEW || "desktop-fullhd";
+const RUNTIME_ENV: string = process.env.RUNTIME_ENV || "local";
+const TARGET_ENV: string = process.env.TARGET_ENV || "local";
+const TARGET_BASE_URL: string = process.env.TARGE_BASE_URL || "http://localhost:3000/";
+const TARGET_DEVICE: string = process.env.TARGET_DEVICE_VIEW || "desktop-fullhd";
 
-const DEVICE_RES = {
+const DEVICE_RES: Record<string, number[]> = {
   "desktop-fullhd": [1920, 1080],
   "desktop-4k": [3840, 2160],
   "iphone-12": [300, 1200],
 };
 
-const chromeStable = {
+const chromeStable: Record<string, any> = {
   maxInstances: 5,
   browserName: "chrome",
   browserVersion: "stable",
@@ -24,6 +24,11 @@ if (RUNTIME_ENV == "ci") {
   };
   chromeStable.maxInstances = 1;
 }
+
+console.log(`RUNTIME_ENV = ${RUNTIME_ENV}`);
+console.log(`TARGET_ENV = ${TARGET_ENV}`);
+console.log(`TARGET_BASE_URL = ${TARGET_BASE_URL}`);
+console.log(`TARGET_DEVICE = ${TARGET_DEVICE}`);
 
 let tmpConfig: Options.Testrunner = {
   //
