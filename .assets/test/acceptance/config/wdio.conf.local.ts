@@ -266,7 +266,7 @@ let tmpConfig: Options.Testrunner = {
    * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
    * @param {object}                 context  Cucumber World object
    */
-  beforeScenario: async function (world, context) {
+  beforeScenario: async function (_world, _context) {
     await browser.setWindowSize(
       DEVICE_RES[TARGET_DEVICE][0],
       DEVICE_RES[TARGET_DEVICE][1]
