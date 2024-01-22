@@ -9,9 +9,15 @@ python3 -m pip install --user virtualenv
 python3 -m venv ./scripts/.pyvenv/
 source ./scripts/.pyvenv/bin/activate
 source ~/.nvm/nvm.sh
+
+echo "Building the projct using node 18"
 nvm use 18
 npm install -g yarn
+make
 
+echo "Building the project using node 20"
+nvm use 20
+npm install -g yarn
 make 
 
 VERSION=$(make version)
