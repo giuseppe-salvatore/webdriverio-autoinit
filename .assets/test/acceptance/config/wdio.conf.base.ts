@@ -18,6 +18,8 @@ const chromeStable: Record<string, any> = {
   browserVersion: "stable",
 };
 
+
+
 if (RUNTIME_ENV == "ci") {
   chromeStable["goog:chromeOptions"] = {
     args: ["--no-sandbox", "--disable-dev-shm-usage", "--headless"],
@@ -90,7 +92,7 @@ let tmpConfig: Options.Testrunner = {
   //
   // Standardized here https://w3c.github.io/webdriver/#capabilities
   //
-  capabilities: [chromeStable],
+  capabilities: {},
 
   //
   // ===================
@@ -360,4 +362,4 @@ let tmpConfig: Options.Testrunner = {
   // }
 };
 
-export const config: Options.Testrunner = tmpConfig;
+export const globalConfig: Options.Testrunner = tmpConfig;
