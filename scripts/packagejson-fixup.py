@@ -18,9 +18,9 @@ data["scripts"]["test:acceptance:desktop"] = "wdio run ./test/acceptance/config/
 data["scripts"]["test:acceptance:desktop:edge"] = "wdio run ./test/acceptance/config/wdio.conf.edge.ts"
 data["scripts"]["test:acceptance:desktop:firefox"] = "wdio run ./test/acceptance/config/wdio.conf.firefox.ts"
 data["scripts"]["test:acceptance:desktop:parallel"] = "wdio run ./test/acceptance/config/wdio.conf.parallel.ts"
-data["scripts"]["test:acceptance:desktop"] = "wdio run ./test/acceptance/config/wdio.conf.local.ts"
-data["scripts"]["test:acceptance:mobile"]  = "TARGET_DEVICE_VIEW=iphone-12 wdio run ./test/acceptance/config/wdio.conf.local.ts"
-data["scripts"]["test:acceptance:desktop:ci"] = "RUNTIME_ENV=ci wdio run ./test/acceptance/config/wdio.conf.local.ts"
+data["scripts"]["test:acceptance:desktop"] = "wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
+data["scripts"]["test:acceptance:mobile"]  = "TARGET_DEVICE_VIEW=iphone-12 wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
+data["scripts"]["test:acceptance:desktop:ci"] = "RUNTIME_ENV=ci wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
 
 
 with open(targetFile, "w") as jsonFile:
