@@ -1,5 +1,5 @@
 import type { Options } from "@wdio/types";
-import { globalConfig } from "./wdio.conf.local";
+import { globalConfig } from "./wdio.conf.base";
 
 globalConfig.capabilities = [{
     maxInstances: 5,
