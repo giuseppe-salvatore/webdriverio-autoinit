@@ -3,7 +3,7 @@
 set timeout 60
 spawn yarn create wdio .
 
-expect -re {A project name.*}
+expect -re {A project named.*}
 send "\r"
 
 expect -re {What type of testing would you like to do.*}
@@ -44,6 +44,9 @@ expect -re {Which reporter do you want to use.*}
 send "\r"
 
 expect -re {Do you want to add a plugin to your test setup.*}
+send "\r"
+
+expect -re {Would you like to include Visual Testing.*}
 send "\r"
 
 expect -re {Do you want to add a service to your test setup.*}
