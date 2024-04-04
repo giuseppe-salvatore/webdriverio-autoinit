@@ -30,7 +30,7 @@ test :
 
 run :
 	yarn test:acceptance:desktop
-	yarn test:acceptance:desktop --cucumberOpts.tagsExecution="@swaglab-app"
+	yarn test:acceptance:desktop --cucumberOpts.tags="@swaglab-app"
 	yarn test:acceptance:mobile
 	yarn test:acceptance:desktop:ci
 
