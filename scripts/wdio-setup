@@ -52,9 +52,6 @@ send "\r"
 expect -re {Do you want to add a service to your test setup.*}
 send "\r"
 
-expect -re {What is the base url.*}
-send "\r"
-
 expect -re {Do you want me to run.*}
 send "n\r"
 
