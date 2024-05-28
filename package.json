@@ -1,0 +1,27 @@
+{
+  "name": "webdriverio-autoinit",
+  "devDependencies": {
+    "@wdio/cli": "^8.38.1",
+    "@wdio/cucumber-framework": "^8.38.0",
+    "@wdio/local-runner": "^8.38.0",
+    "@wdio/spec-reporter": "^8.38.0",
+    "prettier": "^3.2.5",
+    "prettier-quick": "^0.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.ts",
+    "ci": "yarn install --frozen-lockfile",
+    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+    "test:acceptance:desktop": "wdio run ./test/acceptance/config/wdio.conf.chrome.ts",
+    "test:acceptance:desktop:edge": "wdio run ./test/acceptance/config/wdio.conf.edge.ts",
+    "test:acceptance:desktop:firefox": "wdio run ./test/acceptance/config/wdio.conf.firefox.ts",
+    "test:acceptance:desktop:parallel": "wdio run ./test/acceptance/config/wdio.conf.parallel.ts",
+    "test:acceptance:mobile": "TARGET_DEVICE_VIEW=iphone-12 wdio run ./test/acceptance/config/wdio.conf.chrome.ts",
+    "test:acceptance:desktop:ci": "RUNTIME_ENV=ci wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
+  },
+  "relsolutions": {
+    "mockery": "2.1.0"
+  }
+}
