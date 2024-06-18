@@ -20,7 +20,7 @@ const chromeStable: Record<string, any> = {
 
 
 
-if (RUNTIME_ENV == "ci") {
+if (RUNTIME_ENV == "CI") {
   chromeStable["goog:chromeOptions"] = {
     args: ["--no-sandbox", "--disable-dev-shm-usage", "--headless"],
   };
