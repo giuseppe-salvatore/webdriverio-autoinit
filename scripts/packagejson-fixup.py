@@ -7,7 +7,7 @@ with open(targetFile, "r") as jsonFile:
 
 if "type" in data:
     del data["type"]
-data["relsolutions"] = {"mockery": "2.1.0"}
+data["resolutions"] = {"mockery": "2.1.0"}
 data["name"] = "webdriverio-autoinit"
 
 data["scripts"]["ci"] = \
@@ -20,7 +20,7 @@ data["scripts"]["test:acceptance:desktop:firefox"] = "wdio run ./test/acceptance
 data["scripts"]["test:acceptance:desktop:parallel"] = "wdio run ./test/acceptance/config/wdio.conf.parallel.ts"
 data["scripts"]["test:acceptance:desktop"] = "wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
 data["scripts"]["test:acceptance:mobile"]  = "TARGET_DEVICE_VIEW=iphone-12 wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
-data["scripts"]["test:acceptance:desktop:ci"] = "RUNTIME_ENV=ci wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
+data["scripts"]["test:acceptance:desktop:ci"] = "RUNTIME_ENV=CI wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
 
 
 with open(targetFile, "w") as jsonFile:
