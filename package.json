@@ -22,6 +22,7 @@
     "test:acceptance:desktop:ci": "RUNTIME_ENV=CI wdio run ./test/acceptance/config/wdio.conf.chrome.ts"
   },
   "resolutions": {
-    "mockery": "2.1.0"
+    "mockery": "2.1.0",
+    "ws": "^8.17.1"  
   }
 }
