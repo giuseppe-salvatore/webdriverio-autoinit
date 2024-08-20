@@ -1,7 +1,7 @@
 import type { Options } from "@wdio/types";
 import { globalConfig } from "./wdio.conf.base";
 
-const RUNTIME_ENV: string = process.env.RUNTIME_ENV || "CI";
+const RUNTIME_ENV: string = process.env.RUNTIME_ENV || "local";
 
 const chromeStable: Record<string, any> = {
     maxInstances: 5,
