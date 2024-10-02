@@ -6,10 +6,10 @@ The testing is split in two phases.
 1. Make sure you can pull the Webdriver.io latest version, install it, configure it and execute it. This should simply succeed
 but it has not always been the case especially when I changed the configuration options to use Cucumber/Typescript
 
-2. Make sure my custome project/framework doesn't break with the latest version. To do so I simply apply my project files (which simply means copying the test folder in the .assets folder in the root directory) to
-the dependencies installed earlier, and run the tests again
+2. Make sure my custom projects don't break with the latest version. To do so I simply apply my project files (which simply means copying the test folder in the .assets folder in the root directory) to
+the dependencies installed earlier, and run the tests again (in this repo there's an example with a dummy project with a few test cases, real projects are much bigger :) )
 
-# Prerequisites
+# Pre-requisites
 
 - A linux distribution or WSL on Windows (I haven't tested it on Git Bash)
 - python 3
